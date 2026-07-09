@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Estudar Node.js",
+    "description": "Rever conceitos de Express e rotas",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "Aprender sobre FS",
+    "description": "Testar leitura e escrita",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Deu certo",
+    "description": "Criamos o ID 4 agora",
+    "completed": false
+  }
+]
