@@ -1,3 +1,4 @@
+// Controller: cuida da comunicação (entender o pedido HTTP, devolver resposta HTTP)
 const taskService = require("../services/task.service");
 
 function listTasks(req, res) {
