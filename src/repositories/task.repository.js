@@ -6,8 +6,17 @@ const { createTaskModel } = require("../models/task.model");
 const dataFilePath = path.join(__dirname, "..", "data", "tasks.json");
 
 function readTasksFromFile() {
-    const fileContent = fs.readFileSync(dataFilePath, 'utf-8');
-    return JSON.parse(fileContent);
+    if (!fs.existsSync(dataFilePath)) {
+        return [];
+    }
+
+    try {
+        const fileContent = fs.readFileSync(dataFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        console.error("Erro ao ler o arquivo de tarefas:", error.message);
+        return [];
+    }
 }
 
 function writeTasksToFile(tasks) {
