@@ -1,5 +1,7 @@
+// Repository → cuida do armazenamento (ler e escrever o dado, sem questionar nada)
 const fs = require('fs');
 const path = require('path');
+const { createTaskModel } = require("../models/task.model");
 
 const dataFilePath = path.join(__dirname, "..", "data", "tasks.json");
 
@@ -27,12 +29,12 @@ function create(taskData) {
 
     const nextId = tasks.length > 0  ? Math.max(...tasks.map((task) => task.id)) + 1 : 1;
 
-    const newTask = {
+    const newTask = createTaskModel({
         id: nextId,
         title: taskData.title,
         description: taskData.description || "",
         completed: false,
-    };
+    });
 
     tasks.push(newTask);
     writeTasksToFile(tasks);
